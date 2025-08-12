@@ -12,3 +12,8 @@ body {
   height: 100vh;
   max-width: 90%;
 }
+
+
+* {
+  box-sizing: border-box;
+}
