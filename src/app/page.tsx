@@ -1,5 +1,6 @@
 import CardPost from "@/components/CardPost";
 import { Post } from "@/types";
+import logger from "@/logger";
 
 // import Image from "next/image";
 // const post = {
@@ -22,12 +23,25 @@ import { Post } from "@/types";
 
 async function getAllPost() {
   const response = await fetch('http://localhost:3042/posts')
-    .then(res => {
-      if (!res.ok) throw new Error('Erro ao buscar posts')
-      return res.json()
-    })
-  return response
+  if (!response.ok) {
+    // throw new Error('Erro ao buscar posts')
+    logger.error('Erro ao buscar posts')
+    return []
+  }
+  logger.info('Posts buscados com sucesso')
+  const data = await response.json()
+  return data
 }
+
+// Revisando outra maneira
+// async function getAllPost() {
+//   const response = await fetch('http://localhost:3042/posts')
+//     .then(res => {
+//       if (!res.ok) throw new Error('Erro ao buscar posts')
+//       return res.json()
+//     })
+//   return response
+// }
 
 export default async function Home() {
   const posts = await getAllPost()
