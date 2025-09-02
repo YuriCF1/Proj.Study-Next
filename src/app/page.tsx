@@ -1,6 +1,8 @@
 import CardPost from "@/components/CardPost";
 import { Post } from "@/types";
 import logger from "@/logger";
+import styles from './page.module.css'
+import Link from "next/link";
 
 // import Image from "next/image";
 // const post = {
@@ -21,8 +23,21 @@ import logger from "@/logger";
 //   "altImg": "Imagem de Ana Beatriz"
 // }
 
-async function getAllPost() {
-  const response = await fetch('http://localhost:3042/posts')
+// 
+// async function getAllPosts () {
+//   const response = await fetch('http://localhost:3042/posts').catch(error => {
+//     logger.error('Erro de rede: ' + error.message);
+//     return null;
+//   });
+//   if (!response || !response.ok) {
+//     logger.error('Problema ao obter os posts');
+//     return [];
+//   }
+//   return response.json();
+// }
+
+async function getAllPost(page: number) {
+  const response = await fetch(`http://localhost:3042/posts?_page=${page}&_per_page=6`)
   if (!response.ok) {
     // throw new Error('Erro ao buscar posts')
     logger.error('Erro ao buscar posts')
@@ -44,11 +59,14 @@ async function getAllPost() {
 // }
 
 export default async function Home() {
-  const posts = await getAllPost()
+  const {data: posts, prev, next} = await getAllPost(1)
+  console.log('prev' + ' ' + prev, 'next' + ' ' + next);
   return (
     <div>
-      <main>
+      <main className={styles.grid}>
         {posts.map((post: Post) => <CardPost key={post.id} post={post} />)}
+        {prev && <Link href={`/?page=${prev}`}>Anterior</Link>}
+        {next && <Link href={`/?page=${next}`}>Proximo</Link>}
       </main>
     </div>
   );
