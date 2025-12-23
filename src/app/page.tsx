@@ -40,6 +40,7 @@ import { PageProps } from "@/types";
 async function getAllPost(page: number) {
   // const response = await fetch(`http://localhost:3042/posts?_page=${page}&_per_page=6`)
   const response = await fetch(`https://proj-json-servers.onrender.com/posts?_page=${page}&_per_page=6`)
+  
   if (!response.ok) {
     // throw new Error('Erro ao buscar posts')
     logger.error('Erro ao buscar posts')
@@ -47,6 +48,8 @@ async function getAllPost(page: number) {
   }
   logger.info('Posts buscados com sucesso')
   const data = await response.json()
+
+  console.log(data);
   return data
 }
 
@@ -61,30 +64,33 @@ async function getAllPost(page: number) {
 // }
 
 export default async function Home({ searchParams }: PageProps) {
-  const { page } = await searchParams
-  const currentPage = Number(page) || 1
+  const { page } = await searchParams;
+  const currentPage = Number(page) || 1;
 
-  const { data: posts, prev, next } = await getAllPost(currentPage)
+  const posts: Post[] = await getAllPost(currentPage);
+
+  const hasPrev = currentPage > 1;
+  const hasNext = posts.length === 6;
 
   return (
     <div>
       <main className={styles.grid}>
-        {posts.map((post: Post) => (
+        {posts.map((post) => (
           <CardPost key={post.id} post={post} />
         ))}
 
-        {prev && (
-          <Link className={styles.links} href={`/?page=${prev}`}>
+        {hasPrev && (
+          <Link className={styles.links} href={`/?page=${currentPage - 1}`}>
             Anterior
           </Link>
         )}
 
-        {next && (
-          <Link className={styles.links} href={`/?page=${next}`}>
+        {hasNext && (
+          <Link className={styles.links} href={`/?page=${currentPage + 1}`}>
             Próximo
           </Link>
         )}
       </main>
     </div>
-  )
+  );
 }

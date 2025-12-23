@@ -6,7 +6,8 @@ import styles from './page.module.css'
 import CardPost from "@/components/CardPost";
 
 async function getPostBySlug(slug: string) {
-  const url = `https://proj-json-servers.onrender.com/posts/posts?slug=${slug}`
+  const url = `https://proj-json-servers.onrender.com/posts?slug=${slug}`
+
   const response = await fetch(url)
   if (!response.ok) {
     logger.error("Op, alguma coisa deu errada")

@@ -1,0 +1,102 @@
+{
+    "url": "https://proj-json-servers.onrender.com/posts?_page=1&_per_page=6",
+    "type": "default",
+    "redirected": false,
+    "status": 200,
+    "ok": true,
+    "statusText": "OK",
+    "headers": [
+        [
+            "access-control-allow-credentials",
+            "true"
+        ],
+        [
+            "access-control-expose-headers",
+            "X-Total-Count, Link"
+        ],
+        [
+            "alt-svc",
+            "h3=\":443\"; ma=86400"
+        ],
+        [
+            "cache-control",
+            "no-cache"
+        ],
+        [
+            "cf-cache-status",
+            "DYNAMIC"
+        ],
+        [
+            "cf-ray",
+            "9b25e921eaffe015-GIG"
+        ],
+        [
+            "connection",
+            "keep-alive"
+        ],
+        [
+            "content-encoding",
+            "br"
+        ],
+        [
+            "content-type",
+            "application/json; charset=utf-8"
+        ],
+        [
+            "date",
+            "Tue, 23 Dec 2025 06:47:59 GMT"
+        ],
+        [
+            "etag",
+            "W/\"1cf2-mIiiFL2xOTbeLQydea6f/wjZrEs\""
+        ],
+        [
+            "expires",
+            "-1"
+        ],
+        [
+            "link",
+            "<http://proj-json-servers.onrender.com/posts?_page=1&_per_page=6>; rel=\"first\", <http://proj-json-servers.onrender.com/posts?_page=2&_per_page=6>; rel=\"next\", <http://proj-json-servers.onrender.com/posts?_page=2&_per_page=6>; rel=\"last\""
+        ],
+        [
+            "pragma",
+            "no-cache"
+        ],
+        [
+            "rndr-id",
+            "d95d7c99-61d9-4953"
+        ],
+        [
+            "server",
+            "cloudflare"
+        ],
+        [
+            "transfer-encoding",
+            "chunked"
+        ],
+        [
+            "vary",
+            "Origin, Accept-Encoding"
+        ],
+        [
+            "x-content-type-options",
+            "nosniff"
+        ],
+        [
+            "x-powered-by",
+            "Express"
+        ],
+        [
+            "x-render-origin-server",
+            "Render"
+        ],
+        [
+            "x-total-count",
+            "12"
+        ]
+    ],
+    "body": {
+        "locked": false
+    },
+    "bodyUsed": false
+}
