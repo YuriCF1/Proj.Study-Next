@@ -3,6 +3,7 @@ import { Post } from "@/types";
 import logger from "@/logger";
 import styles from './page.module.css'
 import Link from "next/link";
+import { PageProps } from "@/types";
 
 // import Image from "next/image";
 // const post = {
@@ -58,18 +59,31 @@ async function getAllPost(page: number) {
 //   return response
 // }
 
-export default async function Home({searchParams}: {searchParams: { page?: string }}) {
-  const currentPage = Number(searchParams?.page) || 1;
-  
-  const {data: posts, prev, next} = await getAllPost(currentPage)
-  console.log('prev' + ' ' + prev, 'next' + ' ' + next);
+export default async function Home({ searchParams }: PageProps) {
+  const { page } = await searchParams
+  const currentPage = Number(page) || 1
+
+  const { data: posts, prev, next } = await getAllPost(currentPage)
+
   return (
     <div>
       <main className={styles.grid}>
-        {posts.map((post: Post) => <CardPost key={post.id} post={post} />)}
-        {prev && <Link className={styles.links} href={`/?page=${prev}`}>Anterior</Link>}
-        {next && <Link className={styles.links} href={`/?page=${next}`}>Proximo</Link>}
+        {posts.map((post: Post) => (
+          <CardPost key={post.id} post={post} />
+        ))}
+
+        {prev && (
+          <Link className={styles.links} href={`/?page=${prev}`}>
+            Anterior
+          </Link>
+        )}
+
+        {next && (
+          <Link className={styles.links} href={`/?page=${next}`}>
+            Próximo
+          </Link>
+        )}
       </main>
     </div>
-  );
+  )
 }

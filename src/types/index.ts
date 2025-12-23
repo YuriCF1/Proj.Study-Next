@@ -4,6 +4,10 @@ export interface CardPostProps {
   highlight?: boolean;
 }
 
+export interface PageProps  {
+  searchParams: Promise<{ page?: string }>
+}
+
 // Tipos para Author
 export interface Author {
   // id: number;
@@ -35,8 +39,8 @@ export interface CardPostOptionalProps {
   onClick?: (post: Post) => void;
 }
 
-export type HomePageProps = {
-  searchParams: {
-    page?: string;
-  }
-} 
+// export type HomePageProps = {
+//   searchParams: {
+//     page?: string;
+//   }
+// } 
