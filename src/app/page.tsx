@@ -1,5 +1,5 @@
 import CardPost from "@/components/CardPost";
-import { Post, HomePageProps } from "@/types";
+import { Post } from "@/types";
 import logger from "@/logger";
 import styles from './page.module.css'
 import Link from "next/link";
@@ -58,7 +58,7 @@ async function getAllPost(page: number) {
 //   return response
 // }
 
-export default async function Home({searchParams}: HomePageProps) {
+export default async function Home({searchParams}: {searchParams: { page?: string }}) {
   const currentPage = Number(searchParams?.page) || 1;
   
   const {data: posts, prev, next} = await getAllPost(currentPage)
