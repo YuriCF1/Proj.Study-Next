@@ -1,7 +1,7 @@
-# Portoflio
+# Courses Presentation
 
 <!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
-### Deploy of the project: Being built
+### Deploy of the project: Done
 
 ## About it
 Simple project to update Next.js knowledge based on new versions
