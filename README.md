@@ -19,7 +19,7 @@ A dashboard with articles that read slugs from the URL and dynamically display t
 - NextJs
 - Vercel
 
-<img src="https://raw.githubusercontent.com/YuriCF1/Portfolio-Dev/9e9423119a9fb7f25037c6aa2bd684f70990afc2/public/assets/img/example.png" alt="imagem do site">
+<img src="https://raw.githubusercontent.com/YuriCF1/Proj.Study-Next/f5b6b02aa165eb1f7240f2ff6fef5fdb802a80c6/public/images/example.png" alt="imagem do site">
 
 ## 🤝 Colaborators
 
@@ -27,7 +27,7 @@ A dashboard with articles that read slugs from the URL and dynamically display t
   <tr>
     <td align="center">
       <a href="https://www.linkedin.com/in/yf19/">
-        <img src="https://github.com/YuriCF1/YuriCF1/blob/main/99689063.jpg" width="100px;" alt="Foto do Yuri Cruz no GitHub"/><br>
+        <img src="https://avatars.githubusercontent.com/u/99689063?v=4" width="100px;" alt="Foto do Yuri Cruz no GitHub"/><br>
         <sub>
           <b>Yuri Cruz</b>
         </sub>
