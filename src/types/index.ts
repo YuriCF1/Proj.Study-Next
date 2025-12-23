@@ -1,6 +1,7 @@
 // Props do componente CardPost
 export interface CardPostProps {
   post: Post;
+  highlight?: boolean;
 }
 
 // Tipos para Author
