@@ -2,7 +2,7 @@ import CardPost from "@/components/CardPost";
 import { Post } from "@/types";
 import logger from "@/logger";
 import styles from './page.module.css'
-import Link from "next/link";
+import Link from "next/link"
 import { PageProps } from "@/types";
 
 // import Image from "next/image";
