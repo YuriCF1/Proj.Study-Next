@@ -38,7 +38,8 @@ import { PageProps } from "@/types";
 // }
 
 async function getAllPost(page: number) {
-  const response = await fetch(`http://localhost:3042/posts?_page=${page}&_per_page=6`)
+  // const response = await fetch(`http://localhost:3042/posts?_page=${page}&_per_page=6`)
+  const response = await fetch(`https://proj-json-servers.onrender.com/posts?_page=${page}&_per_page=6`)
   if (!response.ok) {
     // throw new Error('Erro ao buscar posts')
     logger.error('Erro ao buscar posts')
