@@ -2,25 +2,35 @@ import { CardPostProps } from '../../types';
 import Image from 'next/image'
 import Avatar from '../Avatar';
 import styles from './cardPost.module.css';
+import Link from 'next/link';
 
-const CardPost = ({ post }: CardPostProps) => {
-  return (
-    <article className={styles.card}>
-      <header className={styles.header}>
-        <figure>
-          <Image src={post.cover} alt={`Imagem de ${post.title}`} width={438} height={133} />
-        </figure>
-      </header>
-      <section className={styles.body}>
-        <h2>{post.title}</h2>
-        <p>{post.body}</p>
-        <footer className={styles.footer}>
-          {/* <Avatar name={post.author.userName} imageSrc={post.author.avatar} imageAlt={post.author.userName} /> */}
-          <Avatar name={post.author.userName} imageSrc={post.author.avatar} imageAlt={`Imagem da ${post.author.userName}`} />
-        </footer>
-      </section>
-    </article>
-  )
+export const CardPost = ({ post, highlight }: CardPostProps) => {
+    return (
+        <Link href={`/posts/${post.slug}`} className={styles.link}>
+             <article className={styles.card} style={{ width: highlight ? 993 : 486}}>
+                <header className={styles.header}>
+                    <figure style={{ height: highlight ? 300 : 133}}>
+                        <Image
+                            src={post.cover}
+                            fill
+                            alt={`Capa do post de titulo: ${post.title}`}
+                        />
+                    </figure>
+                </header>
+                <section className={styles.body}>
+                    <h2>{post.title}</h2>
+                    <p>{post.body}</p>
+                </section>
+                <footer className={styles.footer}>
+                    <Avatar
+                        imageAlt={post.author.username}
+                        imageSrc={post.author.avatar}
+                        name={post.author.username}
+                    />
+                </footer>
+            </article>
+        </Link>
+    )
 }
 
 export default CardPost
