@@ -33,4 +33,10 @@ export interface CardPostOptionalProps {
   post?: Post;
   className?: string;
   onClick?: (post: Post) => void;
+}
+
+export type HomePageProps = {
+  searchParams: {
+    page?: string;
+  }
 } 
