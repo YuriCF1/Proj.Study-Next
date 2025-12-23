@@ -28,15 +28,29 @@ async function getPostBySlug(slug: string) {
   return { postData }
 }
 
-const PagePosts = async ({ params }: { params: { slug: string } }) => { //Só é slug pois na pasta está [slug]
-  const post = await getPostBySlug(params.slug)
-  return (<div>
-        <CardPost post={post.postData} highlight />
-        <h3 className={styles.subtitle}>Código:</h3>
-        <div className={styles.code}>
-            <div dangerouslySetInnerHTML={{ __html: post.postData.markedown }} />
-        </div>
-    </div>)
+type PageProps = {
+  params: Promise<{ slug: string }>
+}
+
+const PagePosts = async ({ params }: PageProps) => {
+  const { slug } = await params
+  const post = await getPostBySlug(slug)
+
+  return (
+    <div>
+      <CardPost post={post.postData} highlight />
+
+      <h3 className={styles.subtitle}>Código:</h3>
+
+      <div className={styles.code}>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: post.postData.markedown,
+          }}
+        />
+      </div>
+    </div>
+  )
 }
 
 export default PagePosts
